@@ -20,44 +20,65 @@
 
 .userCard {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   padding: 20px;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  padding-bottom: 0;
   margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  background-color: #ffffff;
+
+  .flex {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+
+    :last-child {
+      border-right: none;
+    }
+  }
 
   .avatar {
-    margin-right: 20px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
   }
 
   .details {
+    padding: 0 30px;
+    margin: 0 0px;
+    border-right: 1px solid #dddfe5;
     .name {
       font-size: 1.25rem;
-      font-weight: bold;
+      font-weight: 500;
+      color: #213f7d;
+    }
+
+    .id {
+      font-size: 14px;
+      font-weight: 400;
+      color: #545f7d;
     }
 
     .tier {
-      background-color: yellow;
-      border-radius: 4px;
-      padding: 2px 8px;
-      margin: 5px 0;
+      color: #545f7d;
+      font-weight: 500;
     }
 
     .balance {
       font-size: 1.25rem;
-      font-weight: bold;
+      font-weight: 500;
+      color: #213f7d;
+    }
+
+    .accountDetails {
+      font-size: 12px;
+      font-weight: 500;
+      color: #213f7d;
     }
   }
-}
-
-.tabs {
-  margin-bottom: 20px;
 
   .tabList {
     display: flex;
-    border-bottom: 1px solid #e2e8f0;
-    margin-bottom: 20px;
 
     .tab {
       padding: 10px 20px;
@@ -76,10 +97,16 @@
       }
     }
   }
+}
+
+.tabs {
+  margin-bottom: 20px;
 
   .tabPanel {
     display: none;
     padding: 30px;
+    margin-top: 30px;
+    border-radius: 4px;
     background-color: #ffffff;
 
     :last-child {

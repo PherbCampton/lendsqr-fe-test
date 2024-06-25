@@ -29,6 +29,8 @@ import hUsersIcon from "../assets/hUsersIcon.svg";
 import UserswtLoanIcon from "../assets/UserswtLoanIcon.svg";
 import UserswtSaving from "../assets/UserswtSaving.svg";
 import ActiveuserIcon from "../assets/ActiveuserIcon.svg";
+import emptyStar from "../assets/empty-star.svg";
+import filledStar from "../assets/filled-star.svg";
 
 export const LOGO = logo;
 export const ILLUSTRATION = signIn;
@@ -61,3 +63,5 @@ export const USERS = hUsersIcon;
 export const USERSWITHLOANS = UserswtLoanIcon;
 export const USERSWITHSAVINGS = UserswtSaving;
 export const ACTIVEUSERSWITHLOAN = ActiveuserIcon;
+export const FILLEDSTAR = filledStar;
+export const EMPTYSTAR = emptyStar;

@@ -16,6 +16,7 @@ interface AuthState {
   user: IUserRes | null;
   isLoading: boolean;
   isError: boolean;
+  isSuccess: boolean;
   message: string;
   token: string;
 }
@@ -29,6 +30,7 @@ const initialState: AuthState = {
   user: null,
   isLoading: false,
   isError: false,
+  isSuccess: false,
   message: "",
   token: "",
 };
