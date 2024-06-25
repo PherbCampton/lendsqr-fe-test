@@ -204,6 +204,7 @@ const UserDetails: React.FC = () => {
           </div>
 
           <div className={styles.section}>
+            <div className={styles.sectionSpace}></div>
             <div className={styles.infoGrid5}>
               <div className={styles.infoItem}>
                 <div className={styles.label}>Full Name:</div>

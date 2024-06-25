@@ -1,6 +1,8 @@
 /* UserDetails.module.scss */
 .container {
   padding: 20px;
+  width: 100%;
+  background: #fbfbfb;
 }
 
 .header {
@@ -61,12 +63,15 @@
       padding: 10px 20px;
       cursor: pointer;
       margin-right: 5px;
+      color: #000000;
+      opacity: 0.8;
       font-family: "SFCompact";
 
       &.active {
         border-bottom: 2px solid #39cdcc;
         font-family: "Work Sans";
         color: #39cdcc;
+        opacity: 1;
         font-weight: 400;
       }
     }
@@ -74,6 +79,14 @@
 
   .tabPanel {
     display: none;
+    padding: 30px;
+    background-color: #ffffff;
+
+    :last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: none;
+    }
 
     &.active {
       display: block;
@@ -82,12 +95,19 @@
 }
 
 .section {
-  margin-bottom: 20px;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #e9ecf2;
 
   .sectionTitle {
     font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-weight: 500;
+    color: #213f7d;
+    margin-bottom: 20px;
+  }
+
+  .sectionSpace {
+    margin-top: 60px;
   }
 
   .infoGrid4,
@@ -100,8 +120,17 @@
       flex-direction: column;
       line-height: 1.5;
 
+      div {
+        font-weight: 500;
+        font-size: 16px;
+      }
+
       .label {
-        font-weight: bold;
+        color: #545f7d;
+        font-weight: 400;
+        font-size: 12px;
+        padding-bottom: 5px;
+        text-transform: uppercase;
       }
     }
   }
