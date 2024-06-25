@@ -1,0 +1,42 @@
+.user-background {
+  background-color: #fbfbfb;
+  width: 100%;
+  padding: 60px;
+}
+
+.app {
+  padding: 20px;
+  font-family: "Work Sans", sans-serif;
+}
+
+.table-pagein {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  .table-pagein-left {
+    display: flex;
+    padding-right: 40px;
+    padding-left: 40px;
+    align-items: center;
+    .table-pagein-left-text {
+      font-size: 18px;
+    }
+    .table-pagein-right-text {
+      font-size: 18px;
+    }
+    .select-table-wrapper {
+      min-width: 4.375rem;
+      margin: 1;
+      display: flex;
+      align-items: center;
+      .select-table {
+        padding: 5px;
+        // background-color: aqua;
+        margin-left: 5px;
+        outline: none;
+        border-radius: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("./assets/avenir/AvenirNextCyr-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("./assets/avenir/AvenirNextCyr-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("./assets/avenir/AvenirNextCyr-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("./assets/avenir/AvenirNextCyr-Demi.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("./assets/avenir/AvenirNextCyr-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AvenirNext";
+  src: url("./assets/avenir/AvenirNextCyr-Heavy.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFCompact";
+  src: url("./assets/sf-compact/SFCompactText-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFCompact";
+  src: url("./assets/sf-compact/SFCompactText-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFCompact";
+  src: url("./assets/sf-compact/SFCompactText-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFCompact";
+  src: url("./assets/sf-compact/SFCompactText-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFCompact";
+  src: url("./assets/sf-compact/SFCompactText-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFCompact";
+  src: url("./assets/sf-compact/SFCompactText-Heavy.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+.work-sans {
+  font-family: "Work Sans";
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/// Variables
+$spacing-unit: 16px;
+$primary-color: #545f7d;
+$secondary-color: #213f7d;
+$font-family-base: "AvenirNext", "Helvetica Neue", Arial, sans-serif;
+
+//////////////////////////////////////////////////////////////////////////
+
+// Globals
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#root {
+  margin: 0 auto;
+}
+
+html {
+  font-family: $font-family-base;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $primary-color;
+  // background-color: #e5e6e926;
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+/// Flex
+.flex {
+  display: flex;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.align-stretch {
+  align-items: stretch;
+}
+
+////////////////////////////////////////////////////////////////////////
+
+/// Spacing
+@mixin spacing($property, $multiplier: 1) {
+  #{$property}: $spacing-unit * $multiplier;
+}
+
+.margin-0 {
+  margin: 0 !important;
+}
+
+.margin-1 {
+  @include spacing(margin, 1);
+}
+
+.margin-2 {
+  @include spacing(margin, 2);
+}
+
+.padding-0 {
+  padding: 0 !important;
+}
+
+.padding-1 {
+  @include spacing(padding, 1);
+}
+
+.padding-2 {
+  @include spacing(padding, 2);
+}
+
+.gap-2 {
+  gap: 20px;
+}
+
+.gap-3 {
+  gap: 30px;
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+/// Box
+.box-shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.border {
+  border: 1px solid #ddd;
+}
+
+.rounded {
+  border-radius: 4px;
+}
+
+.rounded-lg {
+  border-radius: 8px;
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+/// Text
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-primary {
+  color: $primary-color;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+.status-table {
+  background-color: red;
+  color: blue;
+  padding: 3px;
+  border-radius: 5px;
+}

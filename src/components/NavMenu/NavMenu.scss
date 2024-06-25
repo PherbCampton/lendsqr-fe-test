@@ -1,0 +1,49 @@
+.nav-menu {
+  min-width: 250px;
+  background-color: #ffffff;
+  height: 185vh;
+  padding: 2px;
+  padding-top: 40px;
+
+  .section {
+    margin-bottom: 20px;
+
+    .section-title {
+      margin: 10px 0;
+      padding: 10px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .organization {
+      display: flex;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-left: solid 4px transparent;
+
+      &:hover {
+        background-color: #e9ecef;
+      }
+
+      &.active {
+        background-color: rgba(11, 244, 244, 0.1);
+        color: #213f7d;
+        border-left: solid 4px #39cdcc;
+      }
+
+      .icon {
+        margin-right: 10px;
+      }
+
+      .dropdown {
+        margin-left: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@import "./_variables.scss";
+
+.user-table {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    td {
+      &.inactive {
+        color: $inactive-color;
+      }
+      &.pending {
+        color: $pending-color;
+      }
+      &.blacklisted {
+        color: $blacklisted-color;
+      }
+      &.active {
+        color: $active-color;
+      }
+    }
+  }
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    .page-controls {
+      display: flex;
+      gap: 10px;
+      button {
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+      span {
+        display: inline-block;
+        padding: 5px 10px;
+      }
+    }
+  }
+}

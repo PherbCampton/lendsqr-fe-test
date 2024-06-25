@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+
+  .metric {
+    width: 200px;
+    text-align: start;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    .icon {
+      font-size: 24px;
+    }
+    .value {
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .label {
+      font-size: 16px;
+    }
+  }
+}

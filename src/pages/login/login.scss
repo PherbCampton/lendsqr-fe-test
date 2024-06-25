@@ -1,0 +1,110 @@
+@use "../../styles.scss" as v;
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  min-height: 100vh;
+  z-index: -1;
+
+  .background-left,
+  .background-right {
+    flex: 1;
+    height: 100%;
+  }
+
+  .background-left {
+    background-color: #ffff;
+  }
+
+  .background-right {
+    background-color: rgba(0, 0, 0, 0.01);
+  }
+}
+
+.content-wrapper {
+  display: flex;
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  place-content: center;
+}
+
+.logo {
+  padding-top: 60px;
+  padding-left: 90px;
+  width: fit-content;
+}
+
+.ill-container {
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+}
+
+.form-container {
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
+  flex-direction: column;
+  max-width: 430px;
+  place-content: center;
+}
+
+.login-heading {
+  color: v.$secondary-color;
+  margin-bottom: 0;
+}
+
+.login-description {
+  margin-bottom: 60px;
+}
+
+.email-container,
+.password-container {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.show-password {
+  cursor: pointer;
+  font-size: 12px;
+  color: #aaa;
+  margin-left: 5px;
+}
+
+.forgot-password {
+  font-size: 12px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: "100%";
+  text-decoration: none;
+  color: #39cdcc;
+}
+
+.login-button {
+  display: flex;
+  background-color: #39cdcc;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 14px;
+  font-family: "AvenirNext";
+  justify-content: center;
+}
+
+button[type="submit"]:hover {
+  background-color: #39cdcc;
+}

@@ -1,0 +1,70 @@
+@use "../../styles.scss" as v;
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.1);
+
+  .nav-bar-wrapper {
+    padding: 0 20px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    justify-content: space-between;
+
+    .personal {
+      flex: 1;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      justify-content: end;
+      height: fit-content;
+
+      .avatar {
+        border-radius: 50%;
+      }
+
+      .profile-name {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .doc {
+        font-size: 16x;
+        font-weight: 500;
+        text-decoration: underline;
+      }
+    }
+
+    .logo-search {
+      display: flex;
+      flex: 1;
+      justify-content: space-between;
+
+      .search {
+        display: flex;
+        border-radius: 8px;
+        border: 1px solid rgba(33, 64, 125, 0.268);
+
+        .input {
+          width: 300px;
+          font-family: "Work Sans";
+        }
+
+        .search-bar {
+          width: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #39cdcc;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+        }
+      }
+    }
+  }
+}
