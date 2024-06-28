@@ -22,6 +22,7 @@ interface AuthState {
 }
 
 interface AuthResponse {
+  message: string;
   user: IUserRes | null;
   token: string;
 }
@@ -39,9 +40,9 @@ export const createLogin = createAsyncThunk<
   AuthResponse,
   LoginParams,
   AsyncThunkConfig
->("auth/login", async ({ email, password }: LoginParams, thunkAPI) => {
+>("auth/login", async (data: LoginParams, thunkAPI) => {
   try {
-    const response = await login(email, password);
+    const response = await login(data);
     return response;
   } catch (error) {
     let errorMessage = "Login failed";
@@ -55,7 +56,14 @@ export const createLogin = createAsyncThunk<
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    reset: (state) => {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = false;
+      state.message = "";
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(createLogin.pending, (state) => {
@@ -67,7 +75,9 @@ const authSlice = createSlice({
         createLogin.fulfilled,
         (state, action: PayloadAction<AuthResponse>) => {
           state.isLoading = false;
+          state.isSuccess = true;
           state.user = action.payload.user;
+          state.message = action.payload.message;
           state.token = action.payload.token;
         }
       )
@@ -79,5 +89,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { actions: authActions, reducer: authReducer } = authSlice;
+export const { reset } = authSlice.actions;
+export const authReducer = authSlice.reducer;
 export type { AuthState };

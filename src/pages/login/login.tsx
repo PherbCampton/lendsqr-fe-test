@@ -2,14 +2,18 @@ import "./login.scss";
 import { ILLUSTRATION, LOGO } from "../../constants/assets";
 import { useState } from "react";
 import { Input } from "../../components/Input/Input";
-import { createLogin } from "../../services/auth/authslice";
+import { createLogin, reset } from "../../services/auth/authslice";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import { CircularProgress, SnackbarCloseReason } from "@mui/material";
+import { AppDispatch } from "../../app/store";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
   const { isLoading, isSuccess, message } = useSelector(
     (state: RootState) => state.auth
   );
@@ -19,34 +23,62 @@ export const Login = () => {
   const [passwordError, setPasswordError] = useState<string>("");
   const [openSnackbar, setOpenSnackbar] = useState<boolean>(false);
   const [snackbarMessage, setSnackbarMessage] = useState<string>("");
+  const [snackbarSeverity, setSnackbarSeverity] = useState<"success" | "error">(
+    "success"
+  );
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.SyntheticEvent) => {
     e.preventDefault();
-
     setEmailError("");
     setPasswordError("");
 
     let isValid = true;
 
-    if (emailValue.trim() === "") {
+    if (email.trim() === "") {
       setEmailError("Email is required");
       isValid = false;
     }
 
-    if (passwordValue.trim() === "") {
+    if (password.trim() === "") {
       setPasswordError("Password is required");
       isValid = false;
     }
 
     if (isValid) {
-      const result = dispatch(createLogin({ email, password }));
+      const data = {
+        email,
+        password,
+      };
+      const result = await dispatch(createLogin(data));
+      if (createLogin.fulfilled.match(result)) {
+        setSnackbarMessage(message || "Login Successful!!!");
+        setSnackbarSeverity("success");
+        setOpenSnackbar(true);
+        setTimeout(() => {
+          isSuccess && navigate("/dashboard");
+        }, 3000);
+        dispatch(reset());
+        setEmail("");
+        setPassword("");
+      } else if (createLogin.rejected.match(result)) {
+        setSnackbarMessage(message || "Login failed");
+        setSnackbarSeverity("error");
+        setOpenSnackbar(true);
+      }
     } else {
       setSnackbarMessage("Please fill in all required fields.");
+      setSnackbarSeverity("error");
       setOpenSnackbar(true);
     }
   };
 
-  const handleCloseSnackbar = () => {
+  const handleCloseSnackbar = (
+    event?: React.SyntheticEvent | Event,
+    reason?: SnackbarCloseReason
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
     setOpenSnackbar(false);
   };
 
@@ -74,16 +106,23 @@ export const Login = () => {
               placeholder="Email"
               onChange={(e) => setEmail(e.target.value)}
             />
+            {emailError && <p className="error-text">{emailError}</p>}
+
             <Input
               type="password"
               value={password}
               placeholder="Password"
-              onChange={(e) => setPasswordValue(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
+            {passwordError && <p className="error-text">{passwordError}</p>}
 
             <p className="forgot-password">FORGOT PASSWORD?</p>
-            <button type="submit" className="login-button">
-              LOG IN
+            <button
+              type="submit"
+              className="login-button"
+              onClick={handleLogin}
+            >
+              {isLoading ? <CircularProgress size={19} /> : "LOG IN"}
             </button>
           </form>
         </div>
@@ -98,7 +137,7 @@ export const Login = () => {
           elevation={6}
           variant="filled"
           onClose={handleCloseSnackbar}
-          severity="error"
+          severity={snackbarSeverity}
         >
           {snackbarMessage}
         </MuiAlert>

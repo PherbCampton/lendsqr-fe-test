@@ -1,14 +1,29 @@
-const API = import.meta.env.BASE_URL;
+const API = `https://lendsqr-cnf9.onrender.com/lendsqr/v2`;
 console.log(API);
 
-export const login = async (email: string, password: string) => {
+interface LoginParams {
+  email: string;
+  password: string;
+}
+
+interface LoginResponse {
+  user: {
+    email: string;
+    token: string;
+  };
+  token: string;
+  message: string;
+}
+
+export const login = async (data: LoginParams): Promise<LoginResponse> => {
   try {
-    const response = await fetch("/api/auth/login", {
+    console.log(data);
+    const response = await fetch(`${API}/api/auth/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify(data),
     });
 
     if (!response.ok) {
@@ -16,8 +31,8 @@ export const login = async (email: string, password: string) => {
       throw new Error(errorData.message || "Login failed");
     }
 
-    const data = await response.json();
-    return data;
+    const responseData: LoginResponse = await response.json();
+    return responseData;
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(error.message || "Login failed");

@@ -4,13 +4,13 @@ import { LoanUserData } from "../../types/loan";
 import { getAllUsers } from "./userService";
 
 interface UsersState {
-  data: LoanUserData[] | null;
+  data: LoanUserData[];
   message: string;
   isLoading: boolean;
 }
 
 const initialState: UsersState = {
-  data: null,
+  data: [],
   message: "",
   isLoading: false,
 };

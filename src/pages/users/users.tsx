@@ -1,6 +1,6 @@
 import Header from "./Header";
 import "./users.scss";
-import Table from "../Table";
+import Table from "./Table";
 
 export const Users = () => {
   return (

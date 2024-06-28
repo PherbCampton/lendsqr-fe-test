@@ -1,6 +1,9 @@
+const API = `https://lendsqr-cnf9.onrender.com/lendsqr/v2`;
+console.log(API);
+
 export const getAllUsers = async () => {
   try {
-    const response = await fetch("/api/auth/login");
+    const response = await fetch(`${API}/api/users/all`, { mode: "no-cors" });
 
     if (!response.ok) {
       const errorData = await response.json();

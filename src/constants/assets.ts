@@ -31,6 +31,7 @@ import UserswtSaving from "../assets/UserswtSaving.svg";
 import ActiveuserIcon from "../assets/ActiveuserIcon.svg";
 import emptyStar from "../assets/empty-star.svg";
 import filledStar from "../assets/filled-star.svg";
+import verticalMore from "../assets/vertical-more.svg";
 
 export const LOGO = logo;
 export const ILLUSTRATION = signIn;
@@ -65,3 +66,4 @@ export const USERSWITHSAVINGS = UserswtSaving;
 export const ACTIVEUSERSWITHLOAN = ActiveuserIcon;
 export const FILLEDSTAR = filledStar;
 export const EMPTYSTAR = emptyStar;
+export const VERTICALMORE = verticalMore;
